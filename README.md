@@ -1,3 +1,7 @@
+```
+forked from https://github.com/thejinchao/libprotobuf
+upgrade protobuf to 3.12.0
+```
 libprotobuf for [Unreal Engine 4][]
 =====
 
