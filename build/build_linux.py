@@ -12,85 +12,49 @@ clang_intermediate  = "_clang_tmp"
 library_path        = "../libprotobuf/lib/linux"
 library_file        = "libprotobuf.a"
 protobuf_src_path   = "../protobuf-source"
-libproto_files      = [
-  protobuf_src_path+"/src/google/protobuf/any.cc",
-  protobuf_src_path+"/src/google/protobuf/any.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/api.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/compiler/importer.cc",
-  protobuf_src_path+"/src/google/protobuf/compiler/parser.cc",
-  protobuf_src_path+"/src/google/protobuf/descriptor.cc",
-  protobuf_src_path+"/src/google/protobuf/descriptor.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/descriptor_database.cc",
-  protobuf_src_path+"/src/google/protobuf/duration.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/dynamic_message.cc",
-  protobuf_src_path+"/src/google/protobuf/empty.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/extension_set_heavy.cc",
-  protobuf_src_path+"/src/google/protobuf/field_mask.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/generated_message_reflection.cc",
-  protobuf_src_path+"/src/google/protobuf/io/gzip_stream.cc",
-  protobuf_src_path+"/src/google/protobuf/io/printer.cc",
-  protobuf_src_path+"/src/google/protobuf/io/strtod.cc",
-  protobuf_src_path+"/src/google/protobuf/io/tokenizer.cc",
-  protobuf_src_path+"/src/google/protobuf/io/zero_copy_stream_impl.cc",
-  protobuf_src_path+"/src/google/protobuf/map_field.cc",
-  protobuf_src_path+"/src/google/protobuf/message.cc",
-  protobuf_src_path+"/src/google/protobuf/reflection_ops.cc",
-  protobuf_src_path+"/src/google/protobuf/service.cc",
-  protobuf_src_path+"/src/google/protobuf/source_context.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/struct.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/mathlimits.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/substitute.cc",
-  protobuf_src_path+"/src/google/protobuf/text_format.cc",
-  protobuf_src_path+"/src/google/protobuf/timestamp.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/type.pb.cc",
-  protobuf_src_path+"/src/google/protobuf/unknown_field_set.cc",
-  protobuf_src_path+"/src/google/protobuf/util/field_comparator.cc",
-  protobuf_src_path+"/src/google/protobuf/util/field_mask_util.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/datapiece.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/default_value_objectwriter.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/error_listener.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/field_mask_utility.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/json_escaping.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/json_objectwriter.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/json_stream_parser.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/object_writer.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/proto_writer.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/protostream_objectsource.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/protostream_objectwriter.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/type_info.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/type_info_test_helper.cc",
-  protobuf_src_path+"/src/google/protobuf/util/internal/utility.cc",
-  protobuf_src_path+"/src/google/protobuf/util/json_util.cc",
-  protobuf_src_path+"/src/google/protobuf/util/message_differencer.cc",
-  protobuf_src_path+"/src/google/protobuf/util/time_util.cc",
-  protobuf_src_path+"/src/google/protobuf/util/type_resolver_util.cc",
-  protobuf_src_path+"/src/google/protobuf/wire_format.cc",
-  protobuf_src_path+"/src/google/protobuf/wrappers.pb.cc",
+libproto_files      = []
+listOfFile = os.listdir(protobuf_src_path+"/src/google/protobuf/")
 
-  protobuf_src_path+"/src/google/protobuf/arena.cc",
-  protobuf_src_path+"/src/google/protobuf/arenastring.cc",
-  protobuf_src_path+"/src/google/protobuf/extension_set.cc",
-  protobuf_src_path+"/src/google/protobuf/generated_message_util.cc",
-  protobuf_src_path+"/src/google/protobuf/io/coded_stream.cc",
-  protobuf_src_path+"/src/google/protobuf/io/zero_copy_stream.cc",
-  protobuf_src_path+"/src/google/protobuf/io/zero_copy_stream_impl_lite.cc",
-  protobuf_src_path+"/src/google/protobuf/message_lite.cc",
-  protobuf_src_path+"/src/google/protobuf/repeated_field.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/atomicops_internals_x86_msvc.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/bytestream.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/common.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/int128.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/once.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/status.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/statusor.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/stringpiece.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/stringprintf.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/structurally_valid.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/strutil.cc",
-  protobuf_src_path+"/src/google/protobuf/stubs/time.cc",
-  protobuf_src_path+"/src/google/protobuf/wire_format_lite.cc"
-]
+protobuf_src_path   = "../protobuf-source"
+libproto_files      = []
+
+def getAllFiles():
+    return __appendAllFiles(protobuf_src_path+"/src/google/protobuf/")
+
+def __appendAllFiles(basePath):
+    listOfFile = os.listdir(basePath)
+    # print(listOfFile)
+    for entry in listOfFile:
+        # Create full path
+        fullPath = os.path.join(basePath, entry)
+        # If entry is a directory then get the list of files in this directory
+        # print(fullPath)
+        if "test" in entry:
+            pass
+        elif "mock" in entry:
+            pass
+        elif "java" in entry:
+            pass
+        elif "csharp" in entry:
+            pass
+        elif "objectivec" in entry:
+            pass
+        elif "ruby" in entry:
+            pass
+        elif "gunzip" in entry:
+            pass
+        elif "field_mask_util" in entry:
+            pass
+        elif os.path.isdir(fullPath):
+            # print("11111:" + fullPath)
+            __appendAllFiles(fullPath)
+        elif entry.endswith(".cc"):
+            # print("22222:" + fullPath)
+            fullPath = fullPath.replace("\\", "/")
+            libproto_files.append(fullPath)
+        else:
+            # print("33333:" + fullPath)
+            pass
 
 def get_unreal_source():
     try:
@@ -185,6 +149,7 @@ def copy_library(intermediate_path, target_path):
     shutil.copy(source_lib_file_path, target_lib_file_path)
 
 ##################################################
+getAllFiles()
 
 #check unreal source folder
 unreal_source = get_unreal_source()
